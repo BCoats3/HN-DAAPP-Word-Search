@@ -65,6 +65,31 @@ body.modal-open { overflow: hidden; }
 </style>
 </head>
 <body>
+<div id="introScreen" style="text-align:center; padding:40px;">
+
+  <h1>Welcome to the DAAPP Initiative</h1>
+
+  <p>Watch the short video below before starting the activity.</p>
+
+  <div style="max-width:800px; margin:20px auto;">
+  <video width="100%" controls>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+  <button onclick="startActivity()" style="
+    padding:15px 25px;
+    font-size:18px;
+    background:#0a3d73;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;">
+    Start Word Search
+  </button>
+
+</div>  
 <div class="wrap">
   <section class="brandbar">
     <div class="brandbar-inner">
