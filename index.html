@@ -297,13 +297,14 @@ document.addEventListener("selectstart", (e) => e.preventDefault());
 
 buildGrid();
 buildList();
+  
 const introVideo = document.getElementById("introVideo");
 
 if (introVideo) {
   introVideo.addEventListener("ended", function () {
     const app = document.querySelector(".wrap");
     if (app) {
-      app.style.display = "block";
+      app.style.setProperty("display", "block", "important");
       app.scrollIntoView({ behavior: "smooth" });
     }
   });
