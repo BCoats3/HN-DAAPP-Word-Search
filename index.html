@@ -310,5 +310,12 @@ document.addEventListener("selectstart", (e) => e.preventDefault());
 buildGrid();
 buildList();
 </script>
+  function startActivity() {
+  const intro = document.getElementById("introScreen");
+  const app = document.querySelector(".wrap");
+
+  if (intro) intro.style.display = "none";
+  if (app) app.style.display = "block";
+}
 </body>
 </html>
