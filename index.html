@@ -90,8 +90,9 @@ body.modal-open { overflow: hidden; }
     Your browser does not support the video tag.
   </video>
 </div>
-  </section>
+</section>
 
+<div id="wordSearchSection" style="display:none;">
   <div class="layout">
     <section class="card">
       <table id="grid"></table>
@@ -103,6 +104,29 @@ body.modal-open { overflow: hidden; }
       <p class="instructions">Click and drag across the letters to select a word. Words are hidden in multiple directions, including horizontal, vertical, and diagonal. When the puzzle is complete, the entry form appears immediately inside the popup, already ready to fill out.</p>
     </aside>
   </div>
+</div>
+Then add this to your bottom <script> block, right before the last </script>:
+const introVideo = document.getElementById("introVideo");
+
+if (introVideo) {
+  introVideo.addEventListener("ended", function () {
+    const wordSearchSection = document.getElementById("wordSearchSection");
+    if (wordSearchSection) {
+      wordSearchSection.style.display = "block";
+      wordSearchSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
+What this does
+banner stays where it is
+video stays where it is
+word search starts hidden
+when video finishes, the word search appears
+Important
+
+If you also want the Employee Check-In section hidden until later, put that inside the same #wordSearchSection too. Right now your pasted code only wraps the layout section.
+
+If you paste the next chunk down through tallyShell, I’ll mark exactly where the closing </div> should go so nothing slips through the cracks.
 
   <section class="card tally-shell" id="tallyShell">
     <div class="badge">Employee Check-In</div>
