@@ -71,14 +71,7 @@ body.modal-open { overflow: hidden; }
 
   <p>Watch the short video below before starting the activity.</p>
 
-  <div style="max-width:800px; margin:20px auto;">
-  <video width="100%" controls>
-    <source src="video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
-
-  <button onclick="startActivity()" style="
+    <button onclick="startActivity()" style="
     padding:15px 25px;
     font-size:18px;
     background:#0a3d73;
@@ -103,6 +96,12 @@ body.modal-open { overflow: hidden; }
       </div>
     </div>
   </section>
+
+  <div style="width:100%; max-width:1200px; margin:20px auto;">
+  <video autoplay muted playsinline controls style="width:100%; height:auto;">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+</div>
 
   <div class="layout">
     <section class="card">
@@ -309,6 +308,10 @@ document.addEventListener("selectstart", (e) => e.preventDefault());
 
 buildGrid();
 buildList();
+<script>
+const video = document.querySelector("video");
+// Set playback speed (0.75 = slower, 0.75 = very slow)
+video.playbackRate = 0.75;
 </script>
 </body>
 </html>
