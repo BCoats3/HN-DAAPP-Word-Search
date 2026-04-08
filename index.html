@@ -333,6 +333,17 @@ if (introVideo) {
     }
   });
 }
+  const introVideo = document.getElementById("introVideo");
+
+if (introVideo) {
+  introVideo.addEventListener("ended", function () {
+    const wordSearchSection = document.getElementById("wordSearchSection");
+    if (wordSearchSection) {
+      wordSearchSection.style.display = "block";
+      wordSearchSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
 </script>
 </body>
 </html>
