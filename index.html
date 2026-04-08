@@ -78,17 +78,6 @@ body.modal-open { overflow: hidden; }
   </video>
 </div>
 
-  <button onclick="startActivity()" style="
-    padding:15px 25px;
-    font-size:18px;
-    background:#0a3d73;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;">
-    Start Word Search
-  </button>
-
 </div>  
 <div class="wrap">
   <section class="brandbar">
@@ -310,12 +299,5 @@ document.addEventListener("selectstart", (e) => e.preventDefault());
 buildGrid();
 buildList();
 </script>
-  function startActivity() {
-  const intro = document.getElementById("introScreen");
-  const app = document.querySelector(".wrap");
-
-  if (intro) intro.style.display = "none";
-  if (app) app.style.display = "block";
-}
 </body>
 </html>
