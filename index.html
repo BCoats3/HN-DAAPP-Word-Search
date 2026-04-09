@@ -109,18 +109,7 @@ body.modal-open { overflow: hidden; }
   </section>
 </div>
 </div>
-<script> block, right before the last </script>:
-const introVideo = document.getElementById("introVideo");
-
-if (introVideo) {
-  introVideo.addEventListener("ended", function () {
-    const wordSearchSection = document.getElementById("wordSearchSection");
-    if (wordSearchSection) {
-      wordSearchSection.style.display = "block";
-      wordSearchSection.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-}
+<script> block, right before the last </script>
   <section class="card tally-shell" id="tallyShell">
     <div class="badge">Employee Check-In</div>
     <h2 style="margin-top:0;">Enter your name and LSC ID#</h2>
