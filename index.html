@@ -309,15 +309,24 @@ buildList();
   
 const introVideo = document.getElementById("introVideo");
 
-if (introVideo) {
-  introVideo.addEventListener("ended", function () {
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("mainVideo");
     const wordSearchSection = document.getElementById("wordSearchSection");
-    if (wordSearchSection) {
-      wordSearchSection.style.display = "block";
-      wordSearchSection.scrollIntoView({ behavior: "smooth" });
+
+    if (video) {
+      // slow video speed
+      video.playbackRate = 0.5;
+
+      // show puzzle when video ends
+      video.addEventListener("ended", function () {
+        if (wordSearchSection) {
+          wordSearchSection.style.display = "block";
+          wordSearchSection.scrollIntoView({ behavior: "smooth" });
+        }
+      });
     }
   });
-}
-  </script>
+</script>
 </body>
 </html>
