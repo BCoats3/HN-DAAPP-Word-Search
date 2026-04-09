@@ -524,12 +524,36 @@ document.addEventListener("selectstart", (e) => e.preventDefault());
 
 buildGrid();
 buildList();
-</script>
 
 </section>
 </div>
 </div>
 
+<script>
+(function () {
+  const video = document.getElementById("mainVideo");
+  const wordSearchSection = document.getElementById("wordSearchSection");
+
+  if (!video || !wordSearchSection) return;
+
+  let revealed = false;
+
+  function showPuzzle() {
+    if (revealed) return;
+    revealed = true;
+    wordSearchSection.style.display = "block";
+    wordSearchSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  video.addEventListener("ended", showPuzzle);
+
+  video.addEventListener("timeupdate", function () {
+    if (video.duration && video.currentTime >= video.duration - 0.25) {
+      showPuzzle();
+    }
+  });
+})();
+</script>
 <script>
 (function () {
   const video = document.getElementById("mainVideo");
