@@ -517,7 +517,21 @@ document.addEventListener("selectstart", (e) => e.preventDefault());
 
 buildGrid();
 buildList();
+
+</div>
   
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("mainVideo");
+    const wordSearchSection = document.getElementById("wordSearchSection");
+
+  if (video && wordSearchSection) {
+      video.addEventListener("ended", function () {
+        wordSearchSection.style.display = "block";
+        wordSearchSection.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+  });
+</script>  
 </body>
 </html>
