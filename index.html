@@ -313,10 +313,10 @@ buildList();
     const wordSearchSection = document.getElementById("wordSearchSection");
 
     if (video) {
-      // slow video speed
-      video.playbackRate = 3.0;
+      video.playbackRate = 1.0;   // normal speed
+      video.defaultPlaybackRate = 1.0;
+      video.preservesPitch = true;
 
-      // show puzzle when video ends
       video.addEventListener("ended", function () {
         if (wordSearchSection) {
           wordSearchSection.style.display = "block";
