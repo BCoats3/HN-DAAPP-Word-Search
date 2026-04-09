@@ -95,6 +95,8 @@ body.modal-open { overflow: hidden; }
 </section>
 
 <div id="wordSearchSection" style="display:none;">
+<div id="wordSearchSection" style="display:none;">
+
   <div class="layout">
     <section class="card">
       <table id="grid"></table>
@@ -106,9 +108,14 @@ body.modal-open { overflow: hidden; }
       <p class="instructions">Click and drag across the letters to select a word. Words are hidden in multiple directions, including horizontal, vertical, and diagonal. When the puzzle is complete, the entry form appears immediately inside the popup, already ready to fill out.</p>
     </aside>
   </div>
+
   <section class="card tally-shell" id="tallyShell">
-    ...
+    <div class="badge">Employee Check-In</div>
+    <h2 style="margin-top:0;">Enter your name and LSC ID#</h2>
+    <p class="instructions">This form unlocks after the puzzle is completed.</p>
+    <div class="tally-frame-wrap" id="tallyWrap"><iframe id="tallyFrame" title="Employee Check-In Form" src="" loading="lazy"></iframe></div>
   </section>
+
 </div>
 </div>
 <script> block, right before the last </script>
@@ -547,6 +554,30 @@ buildList();
   });
 })();
 </script>
+<script>
+(function () {
+  const video = document.getElementById("mainVideo");
+  const wordSearchSection = document.getElementById("wordSearchSection");
 
+  if (!video || !wordSearchSection) return;
+
+  let revealed = false;
+
+  function showPuzzle() {
+    if (revealed) return;
+    revealed = true;
+    wordSearchSection.style.display = "block";
+    wordSearchSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  video.addEventListener("ended", showPuzzle);
+
+  video.addEventListener("timeupdate", function () {
+    if (video.duration && video.currentTime >= video.duration - 0.25) {
+      showPuzzle();
+    }
+  });
+})();
+</script>
 </body>
 </html>
